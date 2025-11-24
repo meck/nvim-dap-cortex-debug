@@ -112,7 +112,7 @@ require('dap').configurations.c = {
         servertype = 'openocd',
         serverpath = 'openocd',
         gdbPath = 'arm-none-eabi-gdb',
-        toolchainPath = '/usr/bin',
+        armToolchainPath = '/usr/bin',
         toolchainPrefix = 'arm-none-eabi',
         runToEntryPoint = 'main',
         swoConfig = { enabled = false },
