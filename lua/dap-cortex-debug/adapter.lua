@@ -206,6 +206,10 @@ local function verify_config(c)
     assert_deprecated('jlinkInterface', 'interface')
     assert_deprecated('openOCDPath', 'serverpath')
 
+    if c.armToolchainPath then
+        c.toolchainPath = c.armToolchainPath
+    end
+
     -- TODO: pvtAvoidPorts
     -- TODO: chained configs?
 
@@ -222,7 +226,7 @@ local function verify_config(c)
         postAttachCommands = {},
         preRestartCommands = {},
         postRestartCommands = {},
-        toolchainPrefix = 'arm-none-eabi',
+        toolchainPrefix = c.armToolchainPrefix or 'arm-none-eabi',
         registerUseNaturalFormat = true,
         variableUseNaturalFormat = true,
     }
